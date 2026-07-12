@@ -1,0 +1,210 @@
+/* =====================================================
+   Hotel Marketplace — shared UI theme
+   Layered on top of Bootstrap 5.3
+   ===================================================== */
+
+:root {
+    --brand-1: #1e3c72;
+    --brand-2: #2a5298;
+    --brand-accent: #ffb703;
+    --brand-accent-dark: #f59e0b;
+    --ink: #1f2937;
+    --muted: #6b7280;
+    --surface: #f4f6fb;
+    --radius: 14px;
+    --shadow-sm: 0 2px 8px rgba(30, 60, 114, .06);
+    --shadow-md: 0 10px 30px rgba(30, 60, 114, .12);
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background-color: var(--surface);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main, .page-body { flex: 1 0 auto; }
+
+/* ---------- Navbar ---------- */
+.navbar {
+    box-shadow: var(--shadow-sm);
+}
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+.navbar.bg-dark {
+    background: linear-gradient(135deg, var(--brand-1), var(--brand-2)) !important;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    border-radius: 999px;
+    font-weight: 600;
+    padding-inline: 1.15rem;
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary {
+    --bs-btn-bg: var(--brand-2);
+    --bs-btn-border-color: var(--brand-2);
+    --bs-btn-hover-bg: var(--brand-1);
+    --bs-btn-hover-border-color: var(--brand-1);
+}
+.btn-warning {
+    --bs-btn-bg: var(--brand-accent);
+    --bs-btn-border-color: var(--brand-accent);
+    --bs-btn-hover-bg: var(--brand-accent-dark);
+    --bs-btn-hover-border-color: var(--brand-accent-dark);
+    color: #1f2937;
+}
+.btn-lg { padding-inline: 1.6rem; }
+
+/* ---------- Cards ---------- */
+.card {
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+.card.shadow, .card.shadow-sm { box-shadow: var(--shadow-sm) !important; }
+
+.hotel-card {
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.hotel-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+.hotel-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Stat cards */
+.stat-card {
+    border-radius: var(--radius);
+    border: none;
+    color: #fff;
+}
+.stat-card .stat-label {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    opacity: .85;
+    margin-bottom: .25rem;
+}
+.stat-card .stat-value {
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+}
+.stat-card i { font-size: 1.6rem; opacity: .55; }
+
+/* ---------- Hero ---------- */
+.hero {
+    background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+    color: #fff;
+    padding: 80px 0 96px;
+    position: relative;
+}
+.hero h1 { font-weight: 800; letter-spacing: -.5px; }
+.hero .lead { opacity: .9; }
+.search-card {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 1.25rem;
+    margin-top: 2rem;
+}
+.search-card .form-control,
+.search-card .btn { height: 48px; }
+
+/* ---------- Forms ---------- */
+.form-control, .form-select {
+    border-radius: 10px;
+    padding: .6rem .9rem;
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--brand-2);
+    box-shadow: 0 0 0 .2rem rgba(42, 82, 152, .15);
+}
+.form-label, label { font-weight: 600; font-size: .9rem; color: var(--ink); }
+
+/* Auth pages */
+.auth-wrap {
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+}
+.auth-card { width: 100%; max-width: 440px; }
+.auth-brand {
+    text-align: center;
+    margin-bottom: 1.25rem;
+    font-weight: 800;
+    color: var(--brand-1);
+    font-size: 1.4rem;
+}
+
+/* ---------- Tables ---------- */
+.table {
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 0;
+}
+.table > :not(caption) > * > * { padding: .85rem 1rem; }
+.table thead th {
+    background: var(--brand-1);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+}
+.table-wrap {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.badge { font-weight: 600; padding: .45em .7em; border-radius: 999px; }
+
+/* ---------- Section headings ---------- */
+.section-title {
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    position: relative;
+    padding-bottom: .4rem;
+}
+.section-title::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 48px; height: 3px;
+    border-radius: 3px;
+    background: var(--brand-accent);
+}
+
+.price-tag { color: #16a34a; font-weight: 700; }
+
+/* ---------- Empty state ---------- */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--muted);
+}
+.empty-state i { font-size: 3rem; opacity: .4; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+    flex-shrink: 0;
+    background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+    color: rgba(255, 255, 255, .85);
+    text-align: center;
+    padding: 1.25rem 0;
+    font-size: .9rem;
+}
